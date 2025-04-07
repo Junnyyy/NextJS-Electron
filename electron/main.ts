@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, ipcMain } from "electron";
 import * as path from "path";
 import * as url from "url";
 import * as fs from "fs";
@@ -13,6 +13,29 @@ if (squirrelStartup) {
 
 let mainWindow: BrowserWindow | null = null;
 
+// Set up IPC handlers
+const setupIpcHandlers = () => {
+  ipcMain.on("example-message", (event, data) => {
+    console.log("Received message from renderer:", data);
+
+    event.reply("example-response", {
+      received: true,
+      timestamp: new Date().toISOString(),
+      message: "Message received in main process!",
+    });
+  });
+
+  ipcMain.handle("get-system-info", () => {
+    return {
+      platform: process.platform,
+      arch: process.arch,
+      nodeVersion: process.version,
+      electronVersion: process.versions.electron,
+      chromeVersion: process.versions.chrome,
+    };
+  });
+};
+
 const createWindow = async () => {
   mainWindow = new BrowserWindow({
     width: 1200,
@@ -23,6 +46,8 @@ const createWindow = async () => {
       preload: path.join(__dirname, "preload.js"),
     },
   });
+
+  setupIpcHandlers();
 
   let nextAppUrl: string;
 
