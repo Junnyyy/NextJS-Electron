@@ -10,7 +10,7 @@
     "lint": "next lint",
     "electron:dev": "cross-env NODE_ENV=development concurrently \"npm run dev\" \"npm run electron:compile\" \"wait-on http://localhost:3000 && electron .\"",
     "electron:compile": "tsc -p electron/tsconfig.json -w",
-    "electron:build": "cross-env NODE_ENV=production npm run build && npm run electron:compile:prod && electron-forge make",
+    "electron:build": "cross-env NODE_ENV=production npm run electron:compile:prod && electron-forge make",
     "electron:compile:prod": "tsc -p electron/tsconfig.json",
     "package": "electron-forge package",
     "make": "electron-forge make"
