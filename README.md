@@ -87,14 +87,6 @@ This will:
 
 The packaged app will be available in the `out` directory.
 
-## Project Structure
-
-- `/src`: Next.js source code
-- `/electron`: Electron-specific code
-  - `main.ts`: Main Electron process
-  - `preload.ts`: Preload script for exposing APIs to the renderer
-- `/out`: Next.js build output (used by Electron)
-
 ## Deployment
 
 ### Web Deployment
