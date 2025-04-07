@@ -1,10 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   reactStrictMode: true,
   output: "export",
-  // Disable server-side rendering when exporting
   distDir: "out",
   // Only use assetPrefix in production, not in development
   assetPrefix: process.env.NODE_ENV === "production" ? "./" : "",

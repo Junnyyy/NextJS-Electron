@@ -3,7 +3,6 @@ import * as path from "path";
 import * as url from "url";
 import * as fs from "fs";
 
-// Define a simple helper since electron-util is causing an issue
 const isDevelopment = process.env.NODE_ENV === "development";
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling
@@ -14,7 +13,6 @@ if (require("electron-squirrel-startup")) {
 let mainWindow: BrowserWindow | null = null;
 
 const createWindow = async () => {
-  // Create the browser window
   mainWindow = new BrowserWindow({
     width: 1200,
     height: 800,
@@ -43,7 +41,6 @@ const createWindow = async () => {
         slashes: true,
       });
     } else {
-      // Try alternative path (for electron-forge packaging)
       const altPath = path.join(process.resourcesPath, "out/index.html");
       if (fs.existsSync(altPath)) {
         nextAppUrl = url.format({
