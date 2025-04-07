@@ -23,7 +23,6 @@ const createWindow = async () => {
     },
   });
 
-  // Load the Next.js app
   let nextAppUrl: string;
 
   if (isDevelopment) {
@@ -33,7 +32,6 @@ const createWindow = async () => {
     // In production, load from the local file system
     const indexPath = path.join(__dirname, "../out/index.html");
 
-    // Check if file exists
     if (fs.existsSync(indexPath)) {
       nextAppUrl = url.format({
         pathname: indexPath,

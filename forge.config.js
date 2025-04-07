@@ -3,7 +3,6 @@ const { FuseV1Options, FuseVersion } = require("@electron/fuses");
 const path = require("path");
 const fs = require("fs");
 
-// Ensure the output directory exists before referencing it
 const outDir = path.resolve(__dirname, "out");
 const outDirExists = fs.existsSync(outDir);
 
@@ -11,9 +10,7 @@ module.exports = {
   packagerConfig: {
     asar: true,
     executableName: "nextjs-electron",
-    // Include the Next.js output directory in the app
     extraResource: outDirExists ? [outDir] : [],
-    // Ensure symlinks are not preserved, which can cause issues on macOS
     ignoreSymlinks: true,
   },
   rebuildConfig: {},
