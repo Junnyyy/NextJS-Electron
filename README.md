@@ -71,6 +71,9 @@ This will:
 
 > [!NOTE]
 > If you're using Chrome DevTools (such as when using `npm run electron:dev`), you may see some errors related to the Autofill API that looks like this: `Request Autofill.enable failed...`. This is a result of a experimental Autofill Panel in Devtools. It can be disabled by turning off the Autofill Panel experiment in DevTools. Ref. [Issue #41614](https://github.com/electron/electron/issues/41614).
+> 
+> <img width="250" alt="image" src="https://github.com/user-attachments/assets/2424fce2-9519-46db-93d0-9a6700fa0e91" />
+
 
 ## Building
 
