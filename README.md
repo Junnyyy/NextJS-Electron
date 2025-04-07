@@ -109,7 +109,7 @@ npm run build
 Hosted on Vercel: https://electron.johnnyle.io/
 
 > [!TIP]
-> On Vercel, you won't need to set the output directory. It will automatically use the `out` directory.
+> On Vercel, you won't need to set the output directory. It will automatically use the `out` directory. If you're facing [`Routes Manifest Could Not Be Found` error](https://github.com/vercel/vercel/blob/main/errors/now-next-routes-manifest.md), it's likely because of this.
 
 ### Desktop Deployment
 
