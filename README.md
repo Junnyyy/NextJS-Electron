@@ -1,6 +1,6 @@
 # Next.js 15 with Electron
 
-This project integrates Next.js 15 with Electron, allowing you to build a desktop application while maintaining the ability to deploy your Next.js app on Vercel.
+This project integrates Next.js 15 page router with Electron, allowing you to build a desktop application while maintaining the ability to deploy your Next.js app on Vercel.
 
 > [!NOTE]
 > I built this at 1 AM on a work night, there may be some issues. I'll update this as I find them. If you find any issues, please let me know.
@@ -11,6 +11,11 @@ This project integrates Next.js 15 with Electron, allowing you to build a deskto
 - Electron with Electron Forge for packaging
 - Dual environment support (web and desktop)
 - Static export configuration
+
+## Caveats
+
+- API routes don't work in Electron
+- App router RSCs face issues when used in Electron. Therefore, I've used the pages router for this example.
 
 ## File Structure
 
