@@ -9,6 +9,30 @@ This project integrates Next.js 15 with Electron, allowing you to build a deskto
 - Dual environment support (web and desktop)
 - Static export configuration
 
+## File Structure
+
+```
+nextjs-electron/
+├── electron/             # Electron-specific code
+│   ├── main.ts           # Main Electron process
+│   ├── preload.ts        # Preload script for secure IPC
+│   └── tsconfig.json     # TypeScript config for Electron
+├── src/                  # Next.js source code
+│   ├── pages/            # Page components
+│   │   ├── _app.tsx      # App wrapper component
+│   │   ├── _document.tsx # Document component
+│   │   ├── index.tsx     # Home page component
+│   │   └── api/          # API routes (These don't work in Electron)
+│   └── styles/           # CSS styles
+├── public/               # Static assets
+├── out/                  # Static build output (generated)
+├── package.json          # Project dependencies & scripts
+├── next.config.ts        # Next.js configuration
+├── forge.config.js       # Electron Forge config
+├── tsconfig.json         # TypeScript config for Next.js
+└── ...                   # Other config files
+```
+
 ## Development
 
 ### Next.js Development (Web Only)
