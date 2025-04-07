@@ -4,11 +4,12 @@ contextBridge.exposeInMainWorld("electron", {
   node: () => process.versions.node,
   chrome: () => process.versions.chrome,
   electron: () => process.versions.electron,
-  sendMessage: (channel: string, args: any) => {
+  sendMessage: <T>(channel: string, args: T) => {
     ipcRenderer.send(channel, args);
   },
-  on: (channel: string, callback: (...args: any[]) => void) => {
-    const subscription = (_event: any, ...args: any[]) => callback(...args);
+  on: <T>(channel: string, callback: (...args: T[]) => void) => {
+    const subscription = (_event: Electron.IpcRendererEvent, ...args: T[]) =>
+      callback(...args);
     ipcRenderer.on(channel, subscription);
 
     return () => {
