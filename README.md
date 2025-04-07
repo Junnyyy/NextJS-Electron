@@ -2,6 +2,9 @@
 
 This project integrates Next.js 15 with Electron, allowing you to build a desktop application while maintaining the ability to deploy your Next.js app on Vercel.
 
+> [!NOTE]
+> I built this at 1 AM on a work night, there may be some issues. I'll update this as I find them. If you find any issues, please let me know.
+
 ## Features
 
 - Next.js 15 with TypeScript
