@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
 
-// Define the Electron window interface
 declare global {
   interface Window {
     electron?: {

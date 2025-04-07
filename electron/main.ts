@@ -6,14 +6,13 @@ import squirrelStartup from "electron-squirrel-startup";
 
 const isDevelopment = process.env.NODE_ENV === "development";
 
-// Handle creating/removing shortcuts on Windows when installing/uninstalling
 if (squirrelStartup) {
   app.quit();
 }
 
 let mainWindow: BrowserWindow | null = null;
 
-// Set up IPC handlers
+// setup IPC handlers
 const setupIpcHandlers = () => {
   ipcMain.on("example-message", (event, data) => {
     console.log("Received message from renderer:", data);
