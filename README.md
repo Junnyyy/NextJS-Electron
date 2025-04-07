@@ -107,3 +107,9 @@ npm run make
 ```
 
 This will create platform-specific distributables in the `out` directory.
+
+### Links
+
+- [Next.js](https://nextjs.org/)
+- [Electron](https://www.electronjs.org/)
+- [Electron Forge](https://www.electronforge.io/)
