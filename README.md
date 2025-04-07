@@ -1,40 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Next.js 15 with Electron
 
-## Getting Started
+This project integrates Next.js 15 with Electron, allowing you to build a desktop application while maintaining the ability to deploy your Next.js app on Vercel.
 
-First, run the development server:
+## Features
+
+- Next.js 15 with TypeScript
+- Electron with Electron Forge for packaging
+- Dual environment support (web and desktop)
+- Static export configuration
+
+## Development
+
+### Next.js Development (Web Only)
+
+To run the Next.js development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This will start the Next.js development server at http://localhost:3000.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Electron Development
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+To run the app in Electron development mode:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+```bash
+npm run electron:dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This will:
 
-## Learn More
+1. Start the Next.js development server
+2. Compile the Electron TypeScript files
+3. Start Electron pointing to the Next.js dev server
 
-To learn more about Next.js, take a look at the following resources:
+## Building
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+### Web Build
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To build the Next.js app for web deployment:
 
-## Deploy on Vercel
+```bash
+npm run build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This will generate a static export in the `out` directory that can be deployed to any static hosting service, including Vercel.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+### Electron Build
+
+To build the Electron app for distribution:
+
+```bash
+npm run electron:build
+```
+
+This will:
+
+1. Build the Next.js app as a static export
+2. Compile the Electron TypeScript files for production
+3. Package the app with Electron Forge
+
+The packaged app will be available in the `out` directory.
+
+## Project Structure
+
+- `/src`: Next.js source code
+- `/electron`: Electron-specific code
+  - `main.ts`: Main Electron process
+  - `preload.ts`: Preload script for exposing APIs to the renderer
+- `/out`: Next.js build output (used by Electron)
+
+## Deployment
+
+### Web Deployment
+
+The Next.js app can be deployed on Vercel or any static hosting:
+
+```bash
+npm run build
+# Then deploy the 'out' directory
+```
+
+### Desktop Deployment
+
+Package the Electron app for different platforms:
+
+```bash
+npm run make
+```
+
+This will create platform-specific distributables in the `out` directory.
