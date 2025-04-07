@@ -2,11 +2,16 @@
   "name": "nextjs-electron",
   "version": "0.1.0",
   "private": true,
+  "main": "electron/out/main.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "electron-forge start",
+    "start": "next start",
     "lint": "next lint",
+    "electron:dev": "cross-env NODE_ENV=development concurrently \"npm run dev\" \"npm run electron:compile\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron:compile": "tsc -p electron/tsconfig.json -w",
+    "electron:build": "cross-env NODE_ENV=production npm run build && npm run electron:compile:prod && electron-forge make",
+    "electron:compile:prod": "tsc -p electron/tsconfig.json",
     "package": "electron-forge package",
     "make": "electron-forge make"
   },
@@ -30,10 +35,13 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
     "electron": "35.1.4",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wait-on": "^7.2.0"
   }
 }
