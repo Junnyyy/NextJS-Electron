@@ -5,7 +5,7 @@ This project integrates Next.js 15 page router with Electron, allowing you to bu
 > [!NOTE]
 > I built this at 1 AM on a work night, there may be some issues. I'll update this as I find them. If you find any issues, please let me know.
 
-<img width="550" alt="image" src="https://github.com/user-attachments/assets/ade05347-f4e1-4f38-a267-e2f971329ca3" />
+<img width="550" alt="image" src="https://github.com/user-attachments/assets/27703965-ba44-4a59-9c52-4411eaa14276" />
 
 ## Features
 
